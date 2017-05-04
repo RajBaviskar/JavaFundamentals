@@ -4,7 +4,7 @@
 public class Main {
     public static void main(String args [ ]){
 
-        MathEquation testEquation = new MathEquation();
+        //MathEquation testEquation = new MathEquation();
 
         MathEquation[] mathEquations = new MathEquation[4]; //
         // Created Array of type MathEquation with size 4
