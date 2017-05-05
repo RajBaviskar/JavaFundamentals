@@ -18,5 +18,33 @@ public class Main {
             System.out.println("Result=" + eachEquation.getResult());
 
         }
+
+        // Using Inheritance
+        CalculateBase[] calculators = {
+                new Adder(1,2),
+                new Subtractor(1,2),
+                new Divider(1,2),
+                new Muiltiplier(1,2)
+        };
+
+        for(CalculateBase eachCalculat: calculators){
+            eachCalculat.calculate();
+            System.out.println(eachCalculat.getResult());
+        }
+
+        //
+
+        String[] statements = {
+                "divide 10 2",
+                "add 10 2",
+                "subtract 10 2",
+                "multiply 10 2",
+        };
+
+        CalculateHelper helper = new CalculateHelper();
+        for (String statement: statements){
+            helper.process(statement);
+            System.out.println(helper.toString());
+        }
     }
 }
