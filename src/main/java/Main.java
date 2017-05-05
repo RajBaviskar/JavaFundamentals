@@ -35,6 +35,9 @@ public class Main {
         //
 
         String[] statements = {
+                "add 1.0", //in correct format
+                "add  xx 24", // error non numeric left arg
+                "adder 2 4", // Invalid command
                 "divide 10 2",
                 "add 10 2",
                 "subtract 10 2",
@@ -43,8 +46,16 @@ public class Main {
 
         CalculateHelper helper = new CalculateHelper();
         for (String statement: statements){
-            helper.process(statement);
-            System.out.println(helper.toString());
+            try {
+                helper.process(statement);
+                System.out.println(helper.toString());
+            } catch (InvalidStatementException e) {
+                System.out.println(e.getMessage());
+                if(e.getCause() != null){
+                    System.out.println(" Original Exception " +
+                    e.getCause().getMessage());
+                }
+            }
         }
     }
 }
